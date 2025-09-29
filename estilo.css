@@ -14,8 +14,7 @@ html,body{
 }
 
 #bloco-form{
-    background: red;
-    height: 100%;
+    background: rgb(78, 137, 195);
 }
 
 #fundo-login{
@@ -23,3 +22,35 @@ html,body{
     background-size: 100%;
     background-position: center;
 }
+
+#titulo-login{
+
+    color: white;
+    font-size: 3em;
+    font-family: sans-serif;
+}
+
+.input-login{
+    border-radius: 20px;
+    border: 0px solid;
+    font-size: 1.2em;
+}
+
+
+
+
+.neu-button {
+    padding: 0.5rem 1.5rem; /* equivalente a py-2 px-6 */
+    font-weight: 500; /* font-medium */
+    background-color: #6366f1; /* bg-indigo-500 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px black; /* shadow-[3px_3px_0px_black] */
+    transition: all 0.2s ease-in-out; /* transition-all */
+  }
+
+  .neu-button:hover {
+    box-shadow: none; /* hover:shadow-none */
+    transform: translate(3px, 3px); /* hover:translate-x-[3px] hover:translate-y-[3px] */
+  }
