@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    --bs-gutter-x: 0em;
+    height: 100%;
+}
+
+#bloco-form{
+    background: red;
+    height: 100%;
+}
+
+#fundo-login{
+    background: url("img/img-login.png") no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
