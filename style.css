@@ -74,7 +74,7 @@ body{
     height: 100%;
 }
 
-.container input{
+/*.container input{
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -83,7 +83,7 @@ body{
     border-radius: 8px;
     width: 100%;
     outline: none;
-}
+}*/
 
 .form-container{
     position: absolute;
@@ -207,3 +207,55 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+
+.inputbox {
+    position: relative;
+    width: 50%;
+    margin: 10px 0;
+  }
+  
+  .inputbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(207, 206, 206);
+    background: rgb(207, 206, 206);
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0.5s;
+  }
+  
+  .inputbox span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgb(85, 84, 84);
+    text-transform: uppercase;
+    transition: 0.5s;
+  }
+  
+  .inputbox input:valid ~ span,
+  .inputbox input:focus ~ span {
+    color: white;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.7em;
+    padding: 0 10px;
+    background: #512da8;
+    letter-spacing: 0.2em;
+  }
+  
+  .inputbox:nth-child(2) input:valid ~ span,
+  .inputbox:nth-child(2) input:focus ~ span {
+    background: black;
+    color: #1d2b3a;
+    border-radius: 2px;
+  }
+  
+  .inputbox input:valid,
+  .inputbox input:focus {
+    border: 2px solid #512da8;
+  }
