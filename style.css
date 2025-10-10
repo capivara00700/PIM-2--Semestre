@@ -1,3 +1,4 @@
+/*-- Formatações gerais --*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 *{
@@ -8,8 +9,6 @@
 }
 
 body{
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,6 +16,8 @@ body{
     height: 100vh;
 }
 
+/*----------------------- ÁREA LOGIN -----------------------*/
+/*-- Formatações Container principal --*/
 .container{
     background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -32,10 +33,6 @@ body{
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
-}
-
-.container span{
-    font-size: 12px;
 }
 
 .container a{
@@ -74,17 +71,6 @@ body{
     height: 100%;
 }
 
-/*.container input{
-    background-color: #eee;
-    border: none;
-    margin: 8px 0;
-    padding: 10px 15px;
-    font-size: 13px;
-    border-radius: 8px;
-    width: 100%;
-    outline: none;
-}*/
-
 .form-container{
     position: absolute;
     top: 0;
@@ -116,6 +102,7 @@ body{
     animation: move 0.6s;
 }
 
+/*-- Animação Container --*/ 
 @keyframes move{
     0%, 49.99%{
         opacity: 0;
@@ -125,21 +112,6 @@ body{
         opacity: 1;
         z-index: 5;
     }
-}
-
-.social-icons{
-    margin: 20px 0;
-}
-
-.social-icons a{
-    border: 1px solid #ccc;
-    border-radius: 20%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 3px;
-    width: 40px;
-    height: 40px;
 }
 
 .toggle-container{
@@ -208,14 +180,14 @@ body{
     transform: translateX(200%);
 }
 
-
+/*-- Formatação inputs --*/
 .inputbox {
     position: relative;
     width: 50%;
     margin: 10px 0;
   }
   
-  .inputbox input {
+.inputbox input {
     width: 100%;
     padding: 10px;
     border: 1px solid rgb(207, 206, 206);
@@ -227,7 +199,7 @@ body{
     transition: 0.5s;
   }
   
-  .inputbox span {
+.inputbox span {
     position: absolute;
     left: 0;
     padding: 10px;
@@ -238,8 +210,9 @@ body{
     transition: 0.5s;
   }
   
-  .inputbox input:valid ~ span,
-  .inputbox input:focus ~ span {
+/*-- Animação inputs --*/
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span {
     color: white;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.7em;
@@ -248,14 +221,14 @@ body{
     letter-spacing: 0.2em;
   }
   
-  .inputbox:nth-child(2) input:valid ~ span,
-  .inputbox:nth-child(2) input:focus ~ span {
+.inputbox:nth-child(2) input:valid ~ span,
+.inputbox:nth-child(2) input:focus ~ span {
     background: black;
     color: #1d2b3a;
     border-radius: 2px;
   }
   
-  .inputbox input:valid,
-  .inputbox input:focus {
+.inputbox input:valid,
+.inputbox input:focus {
     border: 2px solid #512da8;
   }
