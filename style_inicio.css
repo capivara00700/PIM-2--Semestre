@@ -77,7 +77,7 @@ nav{
   }
 
 /* -- Hamburguer -- */
-.hamburguer{
+#hamburguer{
   border: none;
   background: none;
   border-top: 3px solid black;
@@ -88,8 +88,8 @@ nav{
   margin-right: 5%;
 }
 
-.hamburguer::before,
-.hamburguer::after{
+#hamburguer::before,
+#hamburguer::after{
   content: " ";
   display: block;
   width: 30px;
@@ -98,6 +98,21 @@ nav{
   margin-top: 5px;
   position: relative;
   transition: 0.3s;
+}
+
+#navbar.active #hamburguer{
+  top: 26px;
+  right: 16px;
+  border-top-color: transparent;
+}
+
+#navbar.active #hamburguer::before{
+  transform: rotate(135deg);
+}
+
+#navbar.active #hamburguer::after{
+  transform: rotate(-135deg);
+  top: -7px;
 }
 
   /* Main Content */
