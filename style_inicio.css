@@ -51,7 +51,7 @@ body {
   }
   
   /*-- NAV --*/
-  nav {
+nav{
     position: fixed;
     width: 100%;
     background: #fff;
@@ -60,7 +60,8 @@ body {
     justify-content: space-between;
     padding: 15px 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
+    z-index: 1;
+}
   
   nav .logo {
     font-size: 1.4rem;
@@ -74,10 +75,33 @@ body {
     font-size: 1.3rem;
     cursor: pointer;
   }
-  
+
+/* -- Hamburguer -- */
+.hamburguer{
+  border: none;
+  background: none;
+  border-top: 3px solid black;
+  cursor: pointer;
+
+  display: block;
+  z-index: 1;
+  margin-right: 5%;
+}
+
+.hamburguer::before,
+.hamburguer::after{
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: black;
+  margin-top: 5px;
+  position: relative;
+  transition: 0.3s;
+}
+
   /* Main Content */
   main {
-    margin-left: 240px;
     padding: 100px 40px 40px;
     width: 100%;
   }
