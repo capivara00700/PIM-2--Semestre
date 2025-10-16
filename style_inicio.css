@@ -33,27 +33,32 @@ body {
   border-top-right-radius: 20px;
   box-shadow: 3px 0 10px rgba(0,0,0,0.1);
 }
-  
-#Menu-lateral div a {
-    text-decoration: none;
-    color: #fff;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    transition: 0.3s;
-    border-left: 4px solid transparent;
-  }
-  
-#Menu-lateral div a:hover,
-#Menu-lateral div a.ativo {
-    background: #fff;
-    color: #6C63FF;
-    border-left: 4px solid #6C63FF;
-  }
-  
 
-  
+#Menu-lateral div a {
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+ 
+#Menu-lateral i {
+  padding: 0px 7px;
+}
+
+#Menu-lateral i:hover {
+  color: #6C63FF;
+}
+
+#Menu-lateral div a:hover {
+  background: #fff;
+  color: #6C63FF;
+  border-left: 4px solid #6C63FF;
+}  
+
 /*-- NAV --*/
 nav{
     position: fixed;
@@ -88,8 +93,8 @@ nav{
   cursor: pointer;
 
   display: block;
-  z-index: 1;
   margin-right: 5%;
+  z-index: 3;
 }
 
 #hamburguer::before,
