@@ -1,21 +1,21 @@
 /*-- Formatações gerais --*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
-  
+
 body {
   display: flex;
   background-color: #f7f7f7;
   color: #333;
   height: 100vh;
 }
-  
-  /* Sidebar */
+
+/*-- Menu lateral-- */
 #Menu-lateral {
   width: 20%;
   background: #6C63FF;
@@ -31,7 +31,7 @@ body {
   transition: 1.6s;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #Menu-lateral div a {
@@ -44,7 +44,7 @@ body {
   transition: 0.3s;
   border-left: 4px solid transparent;
 }
- 
+
 #Menu-lateral i {
   padding: 0px 7px;
 }
@@ -57,36 +57,36 @@ body {
   background: #fff;
   color: #6C63FF;
   border-left: 4px solid #6C63FF;
-}  
-
-/*-- NAV --*/
-nav{
-    position: fixed;
-    width: 100%;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    z-index: 1;
 }
-  
-  nav .logo {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #512da8;
-  }
-  
-  nav .icons {
-    display: flex;
-    gap: 20px;
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
 
-/* -- Hamburguer -- */
-#hamburguer{
+/*-- Menu Navegação --*/
+nav {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+nav .logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #512da8;
+}
+
+nav .icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* -- BTN Hamburguer -- */
+#hamburguer {
   border: none;
   background: none;
   border-top: 3px solid black;
@@ -98,7 +98,7 @@ nav{
 }
 
 #hamburguer::before,
-#hamburguer::after{
+#hamburguer::after {
   content: " ";
   display: block;
   width: 30px;
@@ -109,23 +109,23 @@ nav{
   transition: 0.3s;
 }
 
-#navbar.active #hamburguer{
+#navbar.active #hamburguer {
   top: 26px;
   right: 16px;
   border-top-color: transparent;
 }
 
-#navbar.active #hamburguer::before{
+#navbar.active #hamburguer::before {
   transform: rotate(135deg);
 }
 
-#navbar.active #hamburguer::after{
+#navbar.active #hamburguer::after {
   transform: rotate(-135deg);
   top: -7px;
 }
 
-/* Main Content */
-#Bloco-Principal{
+/* Bloco principal */
+#Bloco-Principal {
   padding: 100px 40px 40px;
   margin-left: auto;
   width: 100%;
@@ -136,61 +136,60 @@ nav{
   font-size: 1.5rem;
   margin-bottom: 25px;
 }
-  
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  
-  .card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card .icon {
-    font-size: 2rem;
-    color: #6C63FF;
-    margin-bottom: 10px;
-  }
-  
-  .card h3 {
-    font-weight: 600;
-    margin-bottom: 5px;
-  }
-  
-  .card p {
-    color: #555;
-    font-size: 0.9rem;
-  }
-  
-  .card span {
-    font-size: 0.8rem;
-    color: #777;
-    margin: 10px 0;
-  }
-  
-  .card button {
-    background: #6C63FF;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .card button:hover {
-    background: #4a3aff;
-  }
-  
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .icon {
+  font-size: 2rem;
+  color: #6C63FF;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.card span {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 10px 0;
+}
+
+.card button {
+  background: #6C63FF;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background: #4a3aff;
+}
