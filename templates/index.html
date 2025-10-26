@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonte personalizada-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!--Estilo personalizado-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_Login.css') }}">
+    <!--Titulo-->
+    <title>Login page</title>
+</head>
+
+<body>
+    <div class="container" id="container_principal">
+        <div class="form-container sign-up">    <!--Container cadastro-->
+            <form>
+                <h1>Criar a conta</h1>
+                <br/>
+                <div class="inputbox">
+                    <input type="text" name="emailC" required="required">
+                    <span>E-mail</span>
+                 </div>
+                 <div class="inputbox">
+                    <input type="password" name="senhaC" required="required">
+                    <span>Senha</span>
+                 </div>
+                 <div class="inputbox">
+                    <input type="password" name="senhaCC" required="required">
+                    <span>Confirme sua Senha</span>
+                 </div>
+                <button>Cadastre-se</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">    <!--Container Login-->
+            <form action="/login" method="POST">
+                <h1>Login</h1>
+                <br/>
+                <div class="inputbox">
+                    <input type="text" name="emailL" required="required">
+                    <span>E-mail</span>
+                 </div>
+                 <div class="inputbox">
+                    <input type="password" name="senhaLs" required="required">
+                    <span>Senha</span>
+                 </div>
+                <a href="#">Esqueceu sua senha?</a>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Insira seus dados pessoais para usar todos os recursos do site</p>
+                    <button class="hidden" id="login">Entrar</button>   <!--Botão para ir para a tela de login-->
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá!</h1>
+                    <p>Cadastre-se com seus dados pessoais para usar todos os recursos do site</p>
+                    <button class="hidden" id="register">Cadastre-se</button>   <!--Botão para ir para a tela de cadastro-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>   <!--Codigo JS-->
+</body>
+
+</html>
