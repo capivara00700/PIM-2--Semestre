@@ -10,6 +10,7 @@ if(document.getElementById('container_principal')){ //Codigos para o menu de log
     loginBtn.addEventListener('click', () => { // evento de click para animação de troca de tela
         container.classList.remove("active");
     });
+
 }
 
 //botão hamburguer
