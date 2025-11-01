@@ -13,7 +13,9 @@
 
     <script>
         function mostrarpopup(mensagem){
-            alert(mensagem)
+            if (mensagem){
+                alert(mensagem)
+            }
         }
     </script>
 </head>
@@ -21,34 +23,37 @@
 <body>
     <div class="container" id="container_principal">
         <div class="form-container sign-up">    <!--Container cadastro-->
-            <form>
+            <form action="/cadastro" method="post">
+
+                <script>
+                    var mensagem = "{{ erro2 }}"
+                    mostrarpopup(mensagem)
+                </script>
+
                 <h1>Criar a conta</h1>
                 <br/>
                 <div class="inputbox">
-                    <input type="text" name="emailC" required="required">
+                    <input type="text" name="email" required="required">
                     <span>E-mail</span>
                  </div>
                  <div class="inputbox">
-                    <input type="password" name="senhaC" required="required">
+                    <input type="password" name="senha" required="required">
                     <span>Senha</span>
                  </div>
                  <div class="inputbox">
-                    <input type="password" name="senhaCC" required="required">
+                    <input type="password" name="senhaC" required="required">
                     <span>Confirme sua Senha</span>
                  </div>
-                <button>Cadastre-se</button>
+                <button type="submit">Cadastre-se</button>
             </form>
         </div>
         <div class="form-container sign-in">  
-            {% if resultado %}
-            <p>{{ resultado }}</p>
-            {% endif %}
 
-            {% if show_popup %}
             <script>
-                mostrarpopup("Usuário ou senha inválidos.")
+                var mensagem = "{{ erro1 }}"
+                mostrarpopup(mensagem)
             </script>
-            {% endif %}
+
             <!--Container Login-->
             <form action="/login" method="POST">
                 <h1>Login</h1>

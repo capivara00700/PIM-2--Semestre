@@ -10,6 +10,16 @@ db = mysql.connector.connect(
 cursor = db.cursor()
 
 def login(email, senha):
-    cursor.execute("SELECT * FROM `usuarios` WHERE senha = %(senha)s", ({'senha': senha, }))
+    cursor.execute("SELECT senha FROM `usuarios` WHERE email = %(email)s", ({'email': email, }))
     msg = cursor.fetchone()
-    return msg
+
+    if msg == None:
+        return False
+    else: 
+        return True
+
+    
+def cadastro(email, senha, senhaC):
+    if senha == senhaC:
+        if senha in "!@#$%^&*()-+=[]\{}|;':\",./<>?":
+            return True

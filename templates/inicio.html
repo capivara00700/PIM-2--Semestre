@@ -8,7 +8,7 @@
   <!--Fonte personalizada-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!--Estilo personalizado-->
-  <link rel="stylesheet" href="style_inicio.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
   <!--Titulo-->
   <title>inicio</title>
 </head>
@@ -67,6 +67,6 @@
     </div>
   </main>
 
-  <script src="script.js"></script>   <!--Codigo JS-->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>   <!--Codigo JS-->
 </body>
 </html>
