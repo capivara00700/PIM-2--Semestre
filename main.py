@@ -14,7 +14,8 @@ def login():
     senha = request.form["senhaLs"]
 
     erro1 = "Email ou senha inválidos"
-    return render_template('index.html', erro1=erro1)
+    
+    return dblogin.login(email, senha)
 
 
 @app.route('/cadastro', methods=["POST"])
@@ -23,10 +24,11 @@ def cadastro():
     senha = request.form["senha"]
     senhaC = request.form["senhaC"]
 
-    if dblogin.cadastro(email, senha, senhaC):
-        return f"Email: {email}, senha: {senha}, senhaC: {senhaC}"
+    if dblogin.autenticacao(email, senha, senhaC):        
+        msg = dblogin.cadastro(email, senha)
+        return render_template('index.html', msg = msg)
     else:
-        erro2 = "As senhas estão diferentes"
+        erro2 = "Email ou senhas inválidas"
         return render_template('index.html', erro2 = erro2)
 
 
