@@ -13,9 +13,13 @@ def login():
     email = request.form["emailL"]
     senha = request.form["senhaLs"]
 
-    erro1 = "Email ou senha inválidos"
-    
-    return dblogin.login(email, senha)
+    return dblogin.login(email,senha)
+
+    # if dblogin.login(email, senha):
+    #     return render_template('inicio.html') 
+    # else:
+    #     erro1 = "Email ou senha inválidos"
+    #     return render_template('index.html', erro1 = erro1)
 
 
 @app.route('/cadastro', methods=["POST"])
