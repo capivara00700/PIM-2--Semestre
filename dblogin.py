@@ -7,16 +7,19 @@ db = mysql.connector.connect(
     password = '',
     database = 'pim_2'
 )
-cursor = db.cursor()
+cursor = db.cursor(buffered=True)
 
 def login(email, senha):
-    cursor.execute("SELECT senha FROM `usuarios` WHERE email = %(email)s", ({'email': email, }))
+    cursor.execute("SELECT senha FROM `usuarios` WHERE email = %(email)s", ({'email': email}))
     msg = cursor.fetchone()
 
-    return msg
-
+    if msg == None:
+        return False
+    else:
+        if msg[0] == senha:
+            return True
     
-def autenticacao(email, senha, senhaC): #-- se possivek melhorar isto
+def autenticacao(email, senha, senhaC): #-- se possivel melhorar isto
     if "@gmail.com" in email:
         if senha == senhaC:  #-- Verifica a senha
             c1 = c2 = c3 = c4 = False

@@ -13,14 +13,11 @@ def login():
     email = request.form["emailL"]
     senha = request.form["senhaLs"]
 
-    return dblogin.login(email,senha)
-
-    # if dblogin.login(email, senha):
-    #     return render_template('inicio.html') 
-    # else:
-    #     erro1 = "Email ou senha inválidos"
-    #     return render_template('index.html', erro1 = erro1)
-
+    if dblogin.login(email, senha):
+        return render_template('inicio.html')
+    else:
+        erro1 = "Email ou senha inválidos"
+        return render_template('index.html', erro1 = erro1)
 
 @app.route('/cadastro', methods=["POST"])
 def cadastro():
@@ -34,6 +31,10 @@ def cadastro():
     else:
         erro2 = "Email ou senhas inválidas"
         return render_template('index.html', erro2 = erro2)
+
+@app.route('/sair')
+def sair():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
