@@ -57,7 +57,39 @@ def sair():
     session.clear()
     return render_template('index.html')
 
+@app.route('/inicio')
+def inicio():
+    if "aluno" not in session:
+        return redirect("/")
 
+    #conectando com o banco de dados
+    db = mysql.connector.connect(
+        host = 'Localhost',
+        user = 'root',
+        password = '',
+        database = 'pim_2'
+    )
+    cursor = db.cursor(buffered=True)
+
+    # Buscar atividades disponíveis
+    cursor.execute("""
+        SELECT id, titulo, descricao, professor_email, data_criacao
+        FROM atividades
+        ORDER BY data_criacao DESC
+    """)
+    dados = cursor.fetchall()
+
+    atividades = []
+    for a in dados:
+        atividades.append({
+            "id": a[0],
+            "titulo": a[1],
+            "descricao": a[2],
+            "professor_email": a[3],
+            "data_criacao": a[4]
+        })
+
+    return render_template("inicio.html", atividades=atividades)
 
 # =================================================
 #   SISTEMA DO PROFESSOR

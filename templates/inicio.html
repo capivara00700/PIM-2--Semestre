@@ -31,15 +31,31 @@
   </aside>
 
   <main id="Bloco-Principal"> <!--Grade principal das salas de aula-->
-    <h2>Minhas Salas</h2>
+    <h2>Atividades Disponíveis</h2>
+
     <div class="cards">
-      <div class="card">
-        <div class="icon">💻</div>
-        <h3>Programação I</h3>
-        <p>Prof. João Silva</p>
-        <span>Última atualização: 12 de abr</span>
-        <button>Entrar</button>
-      </div>
+    
+      {% if atividades %}
+          {% for a in atividades %}
+          <div class="card">
+            <div class="icon">📘</div>
+            <h3>{{ a.titulo }}</h3>
+            <p>{{ a.descricao }}</p>
+            <span>Professor: {{ a.professor_email }}</span><br>
+            <small>{{ a.data_criacao }}</small>
+    
+            <a href="/atividade/{{ a.id }}">
+              <button>Responder</button>
+            </a>
+          </div>
+          {% endfor %}
+      
+      {% else %}
+          <p>Nenhuma atividade disponível no momento.</p>
+      {% endif %}
+    
+    </div>
+    
   </main>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>   <!--Codigo JS-->
