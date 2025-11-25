@@ -25,23 +25,12 @@
 
   <aside id="Menu-lateral"><!--Menu lateral-->
     <div>
-      <a href="#"><i class="fa-solid fa-chalkboard-user fa-lg"></i> Minhas Salas</a>
+      <a href="{{ url_for('login') }}"><i class="fa-solid fa-chalkboard-user fa-lg"></i> Minhas Salas</a>
       <a href="{{ url_for('index') }}"><i class="fa-solid fa-door-open fa-lg"></i>Sair</a>
     </div>
   </aside>
 
-  <main id="Bloco-Principal"> <!--Grade principal das salas de aula-->
-    <h2>Minhas Salas</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">💻</div>
-        <h3>Programação I</h3>
-        <p>Prof. João Silva</p>
-        <span>Última atualização: 12 de abr</span>
-        <button>Entrar</button>
-      </div>
-  </main>
-
+ 
   <script src="{{ url_for('static', filename='script.js') }}"></script>   <!--Codigo JS-->
 </body>
 </html>
