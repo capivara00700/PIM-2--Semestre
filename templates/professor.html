@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
+  <script src="https://kit.fontawesome.com/20f92d3b80.js" crossorigin="anonymous"></script>
+  <title>Painel do Professor</title>
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <button id="hamburguer"></button>
+    <div class="logo">SIADE</div>
+    <div class="icons">
+      <i class="fa-solid fa-bell fa-lg"></i>
+      <i class="fa-solid fa-user fa-lg"></i>
+    </div>
+  </nav>
+
+  <aside id="Menu-lateral">
+    <div>
+      <a href="{{ url_for('professor') }}"><i class="fa-solid fa-table-columns"></i> Painel</a>
+      <a href="{{ url_for('prof_atividades') }}"><i class="fa-solid fa-book"></i> Minhas Atividades</a>
+      <a href="{{ url_for('sair') }}"><i class="fa-solid fa-door-open"></i> Sair</a>
+    </div>
+  </aside>
+
+  <main id="Bloco-Principal">
+    <h2>Painel do Professor</h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">📘</div>
+        <h3>Minhas Atividades</h3>
+        <p>Gerencie todas as atividades criadas.</p>
+        <a href="{{ url_for('prof_atividades') }}">
+          <button>Acessar</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="icon">➕</div>
+        <h3>Criar Atividade</h3>
+        <p>Cadastre novas tarefas para os alunos.</p>
+        <a href="{{ url_for('nova_atividade') }}">
+          <button>Criar</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

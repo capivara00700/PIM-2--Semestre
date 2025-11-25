@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
+  <title>Login Professor</title>
+
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f0f0;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 350px;
+      margin-top: 80px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #6C63FF;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #6C63FF;
+      border: none;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5146ff;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      color: #6C63FF;
+      font-weight: bold;
+    }
+
+    p {
+      color: red;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="login-box">
+    <h2>Login Professor</h2>
+
+    <form method="POST">
+      <input type="email" name="email" placeholder="E-mail do professor" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    {% if erro %}
+      <p>{{ erro }}</p>
+    {% endif %}
+
+    <div class="link">
+      <a href="/professor/cadastro">Criar uma conta</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

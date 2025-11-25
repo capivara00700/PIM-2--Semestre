@@ -3,34 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Icones personalizados-->
+
+  <!-- Ícones -->
   <script src="https://kit.fontawesome.com/20f92d3b80.js" crossorigin="anonymous"></script>
-  <!--Fonte personalizada-->
+
+  <!-- Fonte e CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!--Estilo personalizado-->
   <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
-  <!--Titulo-->
-  <title>inicio</title>
+
+  <title>Atividades</title>
 </head>
+
 <body>
-  <nav id="navbar"> <!--navegação-Principal-->
+
+  <!-- NAV SUPERIOR -->
+  <nav id="navbar">
     <button id="hamburguer"></button>
     <div class="logo">SIADE</div>
-    
+
     <div class="icons">
       <i class="fa-solid fa-bell fa-lg"></i>
       <i class="fa-solid fa-user fa-lg"></i>
     </div>
   </nav>
 
-  <aside id="Menu-lateral"><!--Menu lateral-->
+  <!-- MENU LATERAL -->
+  <aside id="Menu-lateral">
     <div>
       <a href="{{ url_for('login') }}"><i class="fa-solid fa-chalkboard-user fa-lg"></i> Minhas Salas</a>
-      <a href="{{ url_for('index') }}"><i class="fa-solid fa-door-open fa-lg"></i>Sair</a>
+      <a href="{{ url_for('sair') }}"><i class="fa-solid fa-door-open fa-lg"></i> Sair</a>
     </div>
   </aside>
 
- 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>   <!--Codigo JS-->
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="Bloco-Principal">
+
+    <h2>Atividades da Sala</h2>
+
+    <div class="cards">
+
+      {% for a in atividades %}
+      <div class="card">
+
+        <div class="icon">📘</div>
+
+        <h3>{{ a['titulo'] }}</h3>
+
+        <p>{{ a['descricao'][:80] }}...</p>
+
+        <span>Criada em: {{ a['data_criacao'] }}</span>
+
+        <!-- Botão responder (aluno) -->
+        <a href="/atividade/{{ a['id'] }}/responder">
+          <button>Responder</button>
+        </a>
+
+      </div>
+      {% endfor %}
+
+      {% if atividades|length == 0 %}
+      <p>Nenhuma atividade foi criada ainda.</p>
+      {% endif %}
+
+    </div>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
+  <script src="https://kit.fontawesome.com/20f92d3b80.js" crossorigin="anonymous"></script>
+  <title>Criar Atividade</title>
+
+  <style>
+    .form-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .form-box label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .form-box input, .form-box textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    .form-box button {
+      background: #6C63FF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .form-box button:hover {
+      background: #5146ff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <button id="hamburguer"></button>
+    <div class="logo">SIADE</div>
+    <div class="icons">
+      <i class="fa-solid fa-bell fa-lg"></i>
+      <i class="fa-solid fa-user fa-lg"></i>
+    </div>
+  </nav>
+
+  <aside id="Menu-lateral">
+    <div>
+      <a href="{{ url_for('professor') }}"><i class="fa-solid fa-table-columns"></i> Painel</a>
+      <a href="{{ url_for('prof_atividades') }}"><i class="fa-solid fa-book"></i> Minhas Atividades</a>
+      <a href="{{ url_for('sair') }}"><i class="fa-solid fa-door-open"></i> Sair</a>
+    </div>
+  </aside>
+
+  <main id="Bloco-Principal">
+    <h2>Criar Nova Atividade</h2>
+
+    <div class="form-box">
+      <form method="POST">
+        <label>Título</label>
+        <input type="text" name="titulo" required>
+
+        <label>Descrição</label>
+        <textarea name="descricao" rows="5" required></textarea>
+
+        <button type="submit">Criar atividade</button>
+      </form>
+    </div>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

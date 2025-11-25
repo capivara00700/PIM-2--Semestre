@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_inicio.css') }}">
+  <script src="https://kit.fontawesome.com/20f92d3b80.js" crossorigin="anonymous"></script>
+  <title>Respostas dos Alunos</title>
+
+  <style>
+    .resposta-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .resposta-box b {
+      color: #6C63FF;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <button id="hamburguer"></button>
+    <div class="logo">SIADE</div>
+    <div class="icons">
+      <i class="fa-solid fa-bell fa-lg"></i>
+      <i class="fa-solid fa-user fa-lg"></i>
+    </div>
+  </nav>
+
+  <aside id="Menu-lateral">
+    <div>
+      <a href="{{ url_for('professor') }}"><i class="fa-solid fa-table-columns"></i> Painel</a>
+      <a href="{{ url_for('prof_atividades') }}"><i class="fa-solid fa-book"></i> Minhas Atividades</a>
+      <a href="{{ url_for('sair') }}"><i class="fa-solid fa-door-open"></i> Sair</a>
+    </div>
+  </aside>
+
+  <main id="Bloco-Principal">
+    <h2>Respostas dos Alunos</h2>
+
+    {% if respostas %}
+      {% for r in respostas %}
+      <div class="resposta-box">
+        <b>Aluno:</b> {{ r['aluno_email'] }}<br><br>
+        <b>Resposta:</b>
+        <p>{{ r['resposta'] }}</p>
+        <small>Enviado em: {{ r['data_envio'] }}</small>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p>Nenhuma resposta enviada ainda.</p>
+    {% endif %}
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
