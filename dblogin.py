@@ -1,4 +1,7 @@
 import mysql.connector
+import random
+import string
+import crypto.encrypt
 
 #conectando com o banco de dados
 db = mysql.connector.connect(
@@ -12,11 +15,12 @@ cursor = db.cursor(buffered=True)
 def login(email, senha):
     cursor.execute("SELECT senha FROM `usuarios` WHERE email = %(email)s", ({'email': email}))
     msg = cursor.fetchone()
+    senhac = crypto.encrypt.encrypt(senha)
 
     if msg == None:
         return False
     else:
-        if msg[0] == senha:
+        if msg[0] == senhac:
             return True
     
 def autenticacao(email, senha, senhaC): #-- se possivel melhorar isto
@@ -38,9 +42,17 @@ def autenticacao(email, senha, senhaC): #-- se possivel melhorar isto
     else:
         return False
 
+def gerar_Ra():
+    letras = ''.join(random.choices(string.ascii_uppercase, k=2))  # duas letras maiúsculas
+    numeros = ''.join(random.choices(string.digits, k=4))          # quatro números
+    return letras + numeros
+
+
 def cadastro(email, senha):
-    sql = "INSERT INTO usuarios(email, senha) VALUES (%s, %s)"
-    val = (email, senha)
+    ra = gerar_Ra()
+    senhac = crypto.encrypt.encrypt(senha)
+    sql = "INSERT INTO usuarios(Ra, email, senha) VALUES (%s, %s, %s)"
+    val = (ra, email, senhac)
     cursor.execute(sql, val)
     db.commit()
 
